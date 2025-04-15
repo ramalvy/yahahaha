@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+<div class="container">
+
+    <div id="home" class="page active">
+        
+        <div class="content">
+              <div class="card">
+                <img src="tata3.jpg" alt="Foto 1">
+                <p>cantik kannn iyalah namanya jga orang paling cantik di dunia </p>
+                <body>
+                    <div class="container">
+                        <form action="masuk4.html" method="GET" onsubmit="validateName(event)">
+                            <button type="submit">lanjut</button>
+                        </form>
+                    </div>
+                </body>
+              </div>
+        </div>      
+    </div>       
+</div>
+
+
+     <!-- Audio Element -->
+     <audio id="bgMusic" autoplay loop>
+        <source src="r1.mp3"audio/mp3">
+    </audio>
+
+    <!-- Audio Controls -->
+    <div class="audio-controls">
+        <button class="play-button" onclick="togglePlay()">
+            <span id="playIcon">▶️</span>
+        </button>
+        <div class="volume-control">
+            <span id="volumeIcon" onclick="toggleMute()">🔊</span>
+            <input type="range" class="volume-slider" min="0" max="100" value="50" id="volumeSlider">
+        </div>
+    </div>
+
+    <!-- Dekorasi Bunga -->
+    <div class="flower-decoration" style="top: 10%; left: 5%">🌸</div>
+    <div class="flower-decoration" style="top: 20%; right: 5%">🌺</div>
+    <div class="flower-decoration" style="bottom: 15%; left: 8%">🌷</div>
+    <div class="flower-decoration" style="bottom: 25%; right: 8%">🌹</div>
+
+    <script>
+        // Fungsi navigasi halaman
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+        }
+
+        // Kontrol audio
+        const audio = document.getElementById('bgMusic');
+        const volumeSlider = document.getElementById('volumeSlider');
+        const playIcon = document.getElementById('playIcon');
+        const volumeIcon = document.getElementById('volumeIcon');
+        let lastVolume = 0.5;
+
+        // Fungsi play/pause
+        function togglePlay() {
+            if (audio.paused) {
+                audio.play();
+                playIcon.textContent = '⏸️';
+            } else {
+                audio.pause();
+                playIcon.textContent = '▶️';
+            }
+        }
+
+        // Fungsi volume
+        volumeSlider.addEventListener('input', function () {
+            const volume = this.value / 100;
+            audio.volume = volume;
+            lastVolume = volume;
+            updateVolumeIcon(volume);
+        });
+
+        // Fungsi mute
+        function toggleMute() {
+            if (audio.volume > 0) {
+                audio.volume = 0;
+                volumeSlider.value = 0;
+                volumeIcon.textContent = '🔇';
+            } else {
+                audio.volume = lastVolume;
+                volumeSlider.value = lastVolume * 100;
+                updateVolumeIcon(lastVolume);
+            }
+        }
+
+        // Update ikon volume
+        function updateVolumeIcon(volume) {
+            if (volume === 0) {
+                volumeIcon.textContent = '🔇';
+            } else if (volume < 0.3) {
+                volumeIcon.textContent = '🔈';
+            } else if (volume < 0.7) {
+                volumeIcon.textContent = '🔉';
+            } else {
+                volumeIcon.textContent = '🔊';
+            }
+        }
+
+        // Animasi dekorasi bunga
+        document.querySelectorAll('.flower-decoration').forEach(flower => {
+            flower.style.animationDelay = Math.random() * 2 + 's';
+        });
+    </script>
+    </head>
+
+</html>

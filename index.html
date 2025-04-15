@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>love uuu</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #FF9A8B, #FF6A88, #FF99AC);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #FF3D68;
+            margin-bottom: 15px;
+            font-family: 'Georgia', serif;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #555;
+            font-family: 'Courier New', monospace;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 2px solid #FF6A88;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            width: 100%;
+            background: linear-gradient(135deg, #FF6A88, #FF3D68);
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #FF3D68, #FF6A88);
+            transform: scale(1.05);
+        }
+
+        button:active {
+            transform: scale(0.95);
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgb(29, 27, 28);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            display: none;
+            z-index: 1000;
+        }
+
+        .modal h2 {
+            font-size: 1.8rem;
+            color: #FF3D68;
+            margin-bottom: 10px;
+            font-family: 'Georgia', serif;
+        }
+
+        .modal button {
+            background: linear-gradient(135deg, #FF6A88, #FF3D68);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal button:hover {
+            background: linear-gradient(135deg, #FF3D68, #FF6A88);
+            transform: scale(1.05);
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 999;
+        }
+    </style>
+        <script>
+            async function inipesan(){
+      var { value: nama } = await swals.fire({
+             title: 'masukin nama kamu', input: 'text',
+         });
+         if(nama && nama.length < 11){
+           window.nama = nama;
+           vketikhalo="Haiiii, " + nama + " ✨";
+           mulainama();
+           } else {
+             await swals.fire('Ups!', 'Nama tidak boleh kosong atau lebih dari 10 karakter, ya!');inipesan();
+      }
+    }
+  
+      </script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>welcome to my gallery</h1>
+        <p>masukkan nama Kamu dan klik "MASUK" untuk melanjutkan.</p>
+        <form action="masuk.html" method="GET" onsubmit="validateName(event)">
+            <input type="text" name="nama" placeholder="Masukkan nama Anda" required>
+            <button type="submit">MASUK</button>
+        </form>
+    </div>
+</body>
+
+
+</html>
